@@ -29,7 +29,7 @@ public class ReceiveLogsDirect01 {
         System.out.println("等待接收消息.....");
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
-            message = "接收绑定键:" + delivery.getEnvelope().getRoutingKey() + "，消息：" + message;
+            message = "接收绑定键：" + delivery.getEnvelope().getRoutingKey() + "，消息：" + message;
             File file = new File("D:\\Devtools\\JavaProject\\StudyRabbitMQ\\src\\main\\java\\com\\ww\\rabbitmq\\exchange\\direct\\rabbitmq_info.txt");
             FileUtils.writeStringToFile(file, message, "UTF-8", true);
             System.out.println("错误日志已经接收");

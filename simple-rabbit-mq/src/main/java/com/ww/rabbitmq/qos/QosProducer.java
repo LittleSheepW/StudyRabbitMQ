@@ -47,7 +47,7 @@ public class QosProducer {
                  * body – 消息正文
                  */
                 channel.basicPublish("", ACK_QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
-                System.out.println("发送消息完成:" + message);
+                System.out.println("发送消息完成：" + message);
             }
         }
     }

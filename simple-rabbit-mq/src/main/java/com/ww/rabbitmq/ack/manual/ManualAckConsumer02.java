@@ -10,19 +10,19 @@ import com.ww.rabbitmq.utils.SleepUtil;
  * @create: 2021-09-01 17:03
  * @version: v1.0
  */
-public class ManualAckWorker01 {
+public class ManualAckConsumer02 {
 
     private static final String ACK_QUEUE_NAME = "manual_ack_queue";
 
     public static void main(String[] args) throws Exception {
         Channel channel = RabbitMQUtil.getChannel();
-        System.out.println("Worker01 等待接收消息处理时间较短");
+        System.out.println("Consumer02 等待接收消息处理时间较长");
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-            SleepUtil.sleep(1);
+            SleepUtil.sleep(10);
 
             String receivedMessage = new String(delivery.getBody());
-            System.out.println("Worker01 接收到消息:" + receivedMessage);
+            System.out.println("Consumer02 接收到消息:" + receivedMessage);
 
             /**
              * deliveryTag – 来自收到的AMQP.Basic.GetOk或AMQP.Basic.Deliver的标签

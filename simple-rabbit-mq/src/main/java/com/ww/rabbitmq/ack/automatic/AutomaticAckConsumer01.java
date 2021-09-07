@@ -10,7 +10,7 @@ import com.ww.rabbitmq.utils.RabbitMQUtil;
  * @create: 2021-09-01 15:35
  * @version: v1.0
  */
-public class AutomaticAckWorker02 {
+public class AutomaticAckConsumer01 {
 
     private static final String QUEUE_NAME = "automatic_ack_queue";
 
@@ -19,12 +19,12 @@ public class AutomaticAckWorker02 {
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String receivedMessage = new String(delivery.getBody());
-            System.out.println("Worker02 接收到消息:" + receivedMessage);
+            System.out.println("Consumer01 接收到消息:" + receivedMessage);
         };
         CancelCallback cancelCallback = (consumerTag) -> {
             System.out.println(consumerTag + "消费者取消消费接口回调逻辑");
         };
-        System.out.println("Worker02 消费者启动等待消费......");
+        System.out.println("Consumer01 消费者启动等待消费......");
 
         /**
          * 消费消息

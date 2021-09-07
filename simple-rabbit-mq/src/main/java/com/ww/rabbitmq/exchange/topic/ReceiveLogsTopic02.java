@@ -25,7 +25,7 @@ public class ReceiveLogsTopic02 {
         System.out.println("等待接收消息.....");
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
-            System.out.println(" 接收队列 :" + queueName + " 绑定键：" + delivery.getEnvelope().getRoutingKey() + ", 消息：" + message);
+            System.out.println(" 接收队列：" + queueName + " 绑定键：" + delivery.getEnvelope().getRoutingKey() + ", 消息：" + message);
         };
         channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {
         });

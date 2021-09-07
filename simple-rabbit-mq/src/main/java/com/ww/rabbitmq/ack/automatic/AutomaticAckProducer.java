@@ -6,7 +6,6 @@ import com.ww.rabbitmq.utils.RabbitMQUtil;
 import java.util.Scanner;
 
 /**
- * // TODO: 2021/9/1 文件改名 
  * @author: Sun
  * @create: 2021-09-01 15:36
  * @version: v1.0
@@ -39,7 +38,7 @@ public class AutomaticAckProducer {
                  * body – 消息正文
                  */
                 channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
-                System.out.println("发送消息完成:" + message);
+                System.out.println("发送消息完成：" + message);
             }
         }
     }

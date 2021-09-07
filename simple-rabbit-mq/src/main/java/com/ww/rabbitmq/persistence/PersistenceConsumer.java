@@ -22,7 +22,7 @@ public class PersistenceConsumer {
             SleepUtil.sleep(1);
 
             String receivedMessage = new String(delivery.getBody());
-            System.out.println("接收到消息:" + receivedMessage);
+            System.out.println("接收到消息：" + receivedMessage);
 
             /**
              * deliveryTag – 来自收到的AMQP.Basic.GetOk或AMQP.Basic.Deliver的标签

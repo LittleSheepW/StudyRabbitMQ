@@ -1,4 +1,4 @@
-package com.ww.rabbitmq.ack.manual;
+package com.ww.rabbitmq.qos;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
@@ -10,19 +10,21 @@ import com.ww.rabbitmq.utils.SleepUtil;
  * @create: 2021-09-01 17:03
  * @version: v1.0
  */
-public class ManualAckWorker02 {
+public class QosConsumer02 {
 
-    private static final String ACK_QUEUE_NAME = "manual_ack_queue";
+    private static final String ACK_QUEUE_NAME = "qos_queue";
 
     public static void main(String[] args) throws Exception {
         Channel channel = RabbitMQUtil.getChannel();
-        System.out.println("Worker02 等待接收消息处理时间较长");
+        channel.basicQos(1);
+
+        System.out.println("Consumer02 等待接收消息处理时间较长");
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             SleepUtil.sleep(10);
 
             String receivedMessage = new String(delivery.getBody());
-            System.out.println("Worker02 接收到消息:" + receivedMessage);
+            System.out.println("Consumer02 接收到消息：" + receivedMessage);
 
             /**
              * deliveryTag – 来自收到的AMQP.Basic.GetOk或AMQP.Basic.Deliver的标签

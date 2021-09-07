@@ -26,7 +26,7 @@ public class TtlProducer {
             for (int i = 1; i < 11; i++) {
                 String message = "info" + i;
                 channel.basicPublish(NORMAL_EXCHANGE, "normal", properties, message.getBytes());
-                System.out.println("生产者发送消息:" + message);
+                System.out.println("生产者发送消息：" + message);
             }
         }
     }

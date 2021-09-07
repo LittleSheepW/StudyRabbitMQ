@@ -24,7 +24,7 @@ public class MaxLengthProducer {
             for (int i = 1; i < 11; i++) {
                 String message = "info" + i;
                 channel.basicPublish(NORMAL_EXCHANGE, "normal", null, message.getBytes());
-                System.out.println("生产者发送消息:" + message);
+                System.out.println("生产者发送消息：" + message);
             }
         }
     }
